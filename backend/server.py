@@ -4,7 +4,6 @@
 # https://github.com/jonec76/w14_socket
 # https://stackoverflow.com/questions/59587166/send-webcam-stream-from-server-in-python-using-sockets
 from vidgear.gears import CamGear
-import cv2
 import threading
 import socket
 import pickle
@@ -21,7 +20,7 @@ def stream_detect():
 
     # 相關參數設定
     # 每n偵執行一次辨識(依機器效能決定偵數)
-    frame_per_detection = 5
+    frame_per_detection = 20
     # 設定串流解析度
     options = {"STREAM_RESOLUTION": "480p"}
 
@@ -64,7 +63,7 @@ class Server:
 
     def start_server(self):
 
-        HOST = "127.0.0.1"
+        HOST = "0.0.0.0"
         PORT = 8765
         self.s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

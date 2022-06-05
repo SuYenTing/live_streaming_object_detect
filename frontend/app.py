@@ -1,4 +1,4 @@
-# Client: 以Socket方式接收Server端傳來的即時影像物件辨識結果 
+# WEB: 以Socket方式接收Server端傳來的即時影像物件辨識結果 
 # 並以WEB方式(flask框架)提供給使用者觀看
 # 參考資料:
 # https://github.com/NakulLakhotia/Live-Streaming-using-OpenCV-Flask
@@ -7,6 +7,7 @@ import pickle
 import socket
 import struct
 import cv2
+import os
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ app = Flask(__name__)
 def get_frames():  # generate frame by frame from camera
 
     # 連入socket server
-    HOST = "127.0.0.1"
+    HOST = "backend"
     PORT = 8765
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
@@ -57,8 +58,8 @@ def video_feed():
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('index.html', client_name=os.environ["FRONTENDNAME"])
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)

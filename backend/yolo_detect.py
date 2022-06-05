@@ -1,11 +1,8 @@
 # 使用opencv做YOLO物件偵測
 # 參考資料: https://pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/
 import numpy as np
-import argparse
 import time
 import cv2
-import os
-
 
 # YOLO物件偵測opencv版本
 def yolo_detect(
