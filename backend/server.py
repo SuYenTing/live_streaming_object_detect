@@ -20,7 +20,7 @@ def stream_detect():
 
     # 相關參數設定
     # 每n偵執行一次辨識(依機器效能決定偵數)
-    frame_per_detection = 20
+    frame_per_detection = 5
     # 設定串流解析度
     options = {"STREAM_RESOLUTION": "480p"}
 
