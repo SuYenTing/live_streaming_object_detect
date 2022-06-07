@@ -2,7 +2,9 @@
 
 ## 一、專案簡介
 
-本專案以[Youtube: 桃園大溪老街即時影像](https://www.youtube.com/watch?v=z_mlibCfgFI)做為範例，透過Python的[VidGear](https://github.com/abhiTronix/vidgear)套件，將即時影像接入Python內。接下來以OpenCV載入YOLOv4-tiny模型，進行物件偵測。並將物件偵測完後的照片，以socket方式傳到Flask搭建的WEB前端，提供給使用者觀看。
+本專案為成功大學[鄭憲宗教授](https://plato.csie.ncku.edu.tw/)開設智慧網路及安全技術課程的期末報告。
+
+以[Youtube: 桃園大溪老街即時影像](https://www.youtube.com/watch?v=z_mlibCfgFI)做為範例，透過Python的[VidGear](https://github.com/abhiTronix/vidgear)套件，將即時影像接入Python內。接下來以OpenCV載入YOLOv4-tiny模型，進行物件偵測。並將物件偵測完後的照片，以socket方式傳到Flask搭建的WEB前端，提供給使用者觀看。
 
 ## 二、執行成果範例
 
@@ -23,14 +25,17 @@
     * requirements.txt: Python所需相關套件
     * server.py: 負責接收Youtube即時影像，進行物件偵測後以socket方式傳輸給Frontend
     * yolo_detect.py: 物件偵測程式 
+
 * frontend: 以Flask建立的WEB
     * templates: Flask模板
     * app.py: Flask Web，以socket方式接收backend傳來物件偵測後的照片
     * Dockerfile: Docker部署相關設定
     * requirements.txt: Python所需相關套件
+
 * nginx: 用於負載平衡
     * default.conf: Nginx設定檔案
     * Dockerfile: Docker部署相關設定
+
 * docker-compose.yml: docker compose設定檔
 
 ## 五、執行方式
